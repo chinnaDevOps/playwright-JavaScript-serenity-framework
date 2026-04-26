@@ -208,8 +208,6 @@ target/site/serenity/index.html
 
 ---
 
----
-
 <div align="center">
   Made with ❤️ using <strong>Playwright</strong> + <strong>Serenity/JS</strong>
 </div>
