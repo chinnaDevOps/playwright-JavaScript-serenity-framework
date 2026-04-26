@@ -157,6 +157,4 @@ Feel free to fork, improve, and raise pull requests!
 
 ---
 
-## 📄 License
 
-MIT License
