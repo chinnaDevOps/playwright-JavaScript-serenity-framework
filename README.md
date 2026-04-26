@@ -6,7 +6,7 @@
 ![Serenity/JS](https://img.shields.io/badge/Serenity%2FJS-20B2AA?style=for-the-badge&logo=javascript&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
 
 **A production-grade E2E test automation framework combining the power of Playwright with Serenity/JS's rich reporting and Screenplay pattern.**
 
@@ -207,10 +207,6 @@ target/site/serenity/index.html
 5. Open a Pull Request
 
 ---
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
