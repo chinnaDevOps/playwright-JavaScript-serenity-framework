@@ -98,8 +98,9 @@ npm run test:report
 
 ### Mac Terminal
 
-''' Terminal
+```Terminal
 BASE_URL=https://www.saucedemo.com HEADLESS=false BROWSER_CHANNEL=chrome npm run test:smoke
+```
 
 
 ## 📊 Reporting
