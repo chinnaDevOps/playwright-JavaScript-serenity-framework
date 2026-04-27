@@ -30,6 +30,8 @@ playwright-js-serenity-framework/
 
 ### 1️⃣ Create Project
 
+Then below commands are required, when you do from scractch, so you can avoid this step.
+
 ```bash
 mkdir playwright-js-serenity-framework
 cd playwright-js-serenity-framework
