@@ -53,6 +53,13 @@ playwright-js-serenity-framework/
 
 ### Prerequisites
 
+Then below commands are required, when you do from scractch, so you can avoid this step.
+
+```bash
+mkdir playwright-js-serenity-framework
+cd playwright-js-serenity-framework
+npm init -y
+```
 | Tool | Version |
 |------|---------|
 | Node.js | `>= 18.x` |
@@ -130,6 +137,16 @@ set BASE_URL=https://www.saucedemo.com && set HEADLESS=false && set BROWSER_CHAN
 
 ---
 
+### Mac Terminal
+
+```Terminal
+BASE_URL=https://www.saucedemo.com HEADLESS=false BROWSER_CHANNEL=chrome npm run test:smoke
+```
+
+
+## 📊 Reporting
+
+After execution, Serenity reports are generated at:
 ### 💠 Windows PowerShell
 
 ```powershell
