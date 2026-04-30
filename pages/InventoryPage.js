@@ -1,4 +1,5 @@
-const { BasePage } = require('./BasePage');
+const { BasePage }                = require('./BasePage');
+const { describe, test, expect }  = require('@serenity-js/playwright-test');
 
 /**
  * Page Object Model for the Inventory (Products) Page.
@@ -19,45 +20,36 @@ class InventoryPage extends BasePage {
     this.menuCloseButton   = page.locator('#react-burger-cross-btn');
     this.logoutLink        = page.locator('#logout_sidebar_link');
     this.sidebarMenu       = page.locator('.bm-menu-wrap');
-  }
 
-  // ─── Verification ─────────
+    this.inventoryItemNames       = this.inventoryItems.locator('.inventory_item_name');
+    this.inventoryItemPrices      = this.inventoryItems.locator('.inventory_item_price');
+    this.backpackAddToCartButton  = page.locator('#add-to-cart-sauce-labs-backpack');
+    this.bikeLightAddToCartButton = page.locator('#add-to-cart-sauce-labs-bike-light');
+    this.backpackRemoveButton     = page.locator('#remove-sauce-labs-backpack');
+    this.bikeLightRemoveButton    = page.locator('#remove-sauce-labs-bike-light');
+  }
 
  
   async verifyInventoryPageLoaded(timeout = 10_000) {
-    await this.waitForAllVisible(
-      [this.title, this.inventoryItems.first(), this.sortDropdown],
-      timeout,
-      'Inventory page'
-    );
+    await this.waitForAllVisible([this.title, this.inventoryItems.first(), this.sortDropdown],timeout,'Inventory page');
   }
 
   async verifyTitle(expected = 'Products') {
-    await this.verifyTextEquals(this.title, expected, 'Inventory page title');
+    await expect(this.title).toHaveText(expected);
   }
-
-  // ─── Inventory Queries ──
 
   async getInventoryCount() {
-    return this.inventoryItems.count();
+    return await this.inventoryItems.count();
   }
-
 
   async getProductNames() {
-    return this.inventoryItems
-      .locator('.inventory_item_name')
-      .allTextContents();
+   return await this.inventoryItemNames.allTextContents();
   }
-
 
   async getProductPrices() {
-    const rawPrices = await this.inventoryItems
-      .locator('.inventory_item_price')
-      .allTextContents();
-    return rawPrices.map((p) => parseFloat(p.replace('$', '')));
+    const rawPrices = await this.inventoryItemPrices.allTextContents();
+    return rawPrices.map(price => parseFloat(price.replace('$', '')));
   }
-
-  // ─── Sorting ───
 
   async sortBy(sortValue) {
     await this.selectOption(this.sortDropdown, sortValue);
@@ -65,25 +57,21 @@ class InventoryPage extends BasePage {
 
 
   async getActiveSortOption() {
-    return this.getInputValue(this.sortDropdown);
+    return await this.getInputValue(this.sortDropdown);
   }
 
-  // ─── Cart Interactions ────
-
-
-  async addToCart(locatorId) {
-    await this.click(this.page.locator(locatorId));
+  async addToCart(locator) {
+    await this.click(locator);
   }
 
- 
-  async removeFromCart(locatorId) {
-    await this.click(this.page.locator(locatorId));
+  async removeFromCart(locator) {
+    await this.click(locator);
   }
 
 
-  async addMultipleToCart(locatorIds) {
-    for (const id of locatorIds) {
-      await this.addToCart(id);
+  async addMultipleToCart(locators) {
+    for (const locator of locators) {
+      await this.addToCart(locator);
     }
   }
 
@@ -100,8 +88,6 @@ class InventoryPage extends BasePage {
     await this.click(this.shoppingCartLink);
   }
 
-  // ─── Navigation Menu ────
-
   async openMenu() {
     await this.click(this.menuButton);
     await this.waitForVisible(this.sidebarMenu);
@@ -112,7 +98,6 @@ class InventoryPage extends BasePage {
     await this.click(this.menuCloseButton);
     await this.waitForHidden(this.sidebarMenu);
   }
-
 
   async logout() {
     await this.openMenu();

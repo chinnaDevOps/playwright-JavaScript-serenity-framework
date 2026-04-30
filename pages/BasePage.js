@@ -3,7 +3,6 @@
  * Every page class extends this instead of duplicating boilerplate.
  */
 class BasePage {
- 
   constructor(page) {
     this.page = page;
   }
@@ -16,28 +15,27 @@ class BasePage {
     return this.page.url();
   }
 
-
   async reloadPage() {
     await this.page.reload();
   }
 
-  async waitForVisible(locator, timeout = 10_000) {
+  async waitForVisible(locator, timeout = 10000) {
     await locator.waitFor({ state: 'visible', timeout });
   }
 
-
-  async waitForHidden(locator, timeout = 10_000) {
+  async waitForHidden(locator, timeout = 10000) {
     await locator.waitFor({ state: 'hidden', timeout });
   }
 
-
-  async waitForAllVisible(locators, timeout = 10_000, pageName = 'Page') {
+  async waitForAllVisible(locators, timeout = 10000, pageName = 'Page') {
     try {
       await Promise.all(
         locators.map((locator) => locator.waitFor({ state: 'visible', timeout }))
       );
     } catch (error) {
-      throw new Error('${pageName} did not load within ${timeout}ms.\nCause: ${error.message}');
+      throw new Error(
+        `${pageName} did not load within ${timeout}ms.\nCause: ${error.message}`
+      );
     }
   }
 
@@ -48,10 +46,14 @@ class BasePage {
 
   async fill(locator, value) {
     await this.waitForVisible(locator);
-    await locator.clear();
+    await locator.fill('');
     await locator.fill(value);
   }
 
+  async clear(locator) {
+    await this.waitForVisible(locator);
+    await locator.fill('');
+  }
 
   async selectOption(locator, value) {
     await this.waitForVisible(locator);
@@ -60,36 +62,40 @@ class BasePage {
 
   async getText(locator) {
     await this.waitForVisible(locator);
-    return (await locator.textContent()).trim();
+    const text = await locator.textContent();
+    return text ? text.trim() : '';
   }
-
 
   async getInputValue(locator) {
     await this.waitForVisible(locator);
-    return locator.inputValue();
+    return await locator.inputValue();
   }
-
 
   async isVisible(locator) {
-    return locator.isVisible();
+    return await locator.isVisible();
   }
 
+  async isHidden(locator) {
+    return await locator.isHidden();
+  }
 
   async verifyTextContains(locator, expectedText, label = 'Element') {
     const actual = await this.getText(locator);
     if (!actual.includes(expectedText)) {
-      throw new Error( '${label} text mismatch.\n  Expected to contain: "${expectedText}"\n  Actual: "${actual}"');
+      throw new Error(
+        `${label} text mismatch.\nExpected to contain: "${expectedText}"\nActual: "${actual}"`
+      );
     }
   }
-
 
   async verifyTextEquals(locator, expectedText, label = 'Element') {
     const actual = await this.getText(locator);
     if (actual !== expectedText) {
-      throw new Error('${label} text mismatch.\n  Expected: "${expectedText}"\n  Actual:   "${actual}"');
+      throw new Error(
+        `${label} text mismatch.\nExpected: "${expectedText}"\nActual: "${actual}"`
+      );
     }
   }
-
 
   async takeScreenshot(fileName, dir = 'screenshots') {
     await this.page.screenshot({

@@ -147,7 +147,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 27-04-2026 03:23</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 30-04-2026 16:22</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -214,9 +214,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
-                                <span class="error-color">
+                                <span class="success-color">
                                     Locked-out user &mdash; should show locked error
                                         <span class="related-issue-title"></span>
                                 </span>
@@ -334,7 +334,7 @@
                                 </a>
                         </td>
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">141ms</span></td>
+                    <td width="100"><span class="top-level-step">112ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -348,7 +348,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="top-level-step">
-                                                Serena takes a screenshot of &quot;FAILED-Locked-out user — should show locked error&quot;
+                                                Serena takes a screenshot of &quot;locked-user-error-displayed&quot;
                                         </span>
                             <span class="evidence">
                                 </span>
@@ -358,66 +358,100 @@
                         <td width="160" class="SUCCESS-text">
 
                                 <a href="3fc9f1f423e79a946c80af31a94d3e38a7482a44cbcb47c815e5ffe62ba03b03_screenshots.html#screenshots?screenshot=1">
-                                    <img src="photo-failed-locked-out-user-should-show-locked-error-1f1a93901c.png"
-                                         href="photo-failed-locked-out-user-should-show-locked-error-1f1a93901c.png"
+                                    <img src="photo-locked-user-error-displayed-cd84520e02.png"
+                                         href="photo-locked-user-error-displayed-cd84520e02.png"
                                          class="screenshot"
                                          width="48" height="48"/>
                                 </a>
                         </td>
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">087ms</span></td>
+                    <td width="100"><span class="top-level-step">117ms</span></td>
                 </tr>
-                <tr class="test-ERROR">
-                    <td width="40"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon ' title='ERROR'></i></a></td>
-                    <td width="%" colspan="2">
-                            <span class="top-level-step">TypeError: Cannot read properties of undefined (reading 'username')</span>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="2"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
                     </td>
-                    <td width="130"><span
-                                class="top-level-step">ERROR</span>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                Serena ensures that &quot;Epic sadface: Sorry, this user has been locked out.&quot; does include &quot;Sorry, this user has been locked out&quot;
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
                     </td>
-                    <td width="100"><span class="top-level-step">2.47s</span></td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">002ms</span></td>
                 </tr>
-                <tr class="test-ERROR">
-                    <td width="40">&nbsp</td>
-                    <td width="%" colspan="4">
+                <tr class="test-SUCCESS">
 
-    <div style="display:block">
-        <div class="table">
-            <div class="row">
-                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">TypeError: Cannot read properties of undefined (reading 'username')</span>
-                </div>
-                <div class="col-sm-2">
-                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
-                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
-                </div>
-             </div>
-        </div>
-    <div>
-
-    <!-- Details Section -->
-    <div class="row stacktrace-details">
-      <div class="col">
-        <div class="collapse multi-collapse" id="stacktraceModal-overall">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Error </h4>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <pre>.(C:\Users\chinn\OneDrive\Desktop\playwright-js-serenity-framework\tests\login.spec.js:104)<br /></pre>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+                    <td width="50" class="step-icon">
+                        <a name="3"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
                     </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                Serena takes a screenshot of &quot;locked-user-error-displayed&quot;
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                                <a href="3fc9f1f423e79a946c80af31a94d3e38a7482a44cbcb47c815e5ffe62ba03b03_screenshots.html#screenshots?screenshot=2">
+                                    <img src="photo-locked-user-error-displayed-cd84520e02.png"
+                                         href="photo-locked-user-error-displayed-cd84520e02.png"
+                                         class="screenshot"
+                                         width="48" height="48"/>
+                                </a>
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">119ms</span></td>
                 </tr>
-            <tr class="test-ERROR">
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="4"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                Serena ensures that &quot;https://www.saucedemo.com/&quot; does not include &quot;inventory&quot;
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                        <td width="160" class="SUCCESS-text">
+
+                        </td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">003ms</span></td>
+                </tr>
+            <tr class="test-SUCCESS">
                     <td colspan="3"></td>
-                <td width="130"><span class="top-level-step"><em>ERROR</em></span></td>
-                <td width="100"><span class="top-level-step"><em>2.47s</em></span></td>
+                <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
+                <td width="100"><span class="top-level-step"><em>7.8s</em></span></td>
             </tr>
 
         </table>
